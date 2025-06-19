@@ -1,95 +1,266 @@
-html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rodrigo Lourenço - Desenvolvedor Web</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-            margin: 0;
-            padding: 0;
-            color: #333;
-        }
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>SapiensCred - Empréstimo para Negativados</title>
+  <style>
+    :root {
+      --primary: #FFAB33;
+      --secondary: #ffffff;
+      --accent: #000;
+      --success: #009966;
+      --text-dark: #000;
+      --text-light: #333;
+      --background: #FAFAFA;
+      --white: #fff;
+      --shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    }
 
-        header {
-            background-color: #4CAF50;
-            padding: 20px;
-            color: white;
-            text-align: center;
-        }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background-color: var(--background);
+      color: var(--text-dark);
+    }
 
-        section {
-            padding: 20px;
-            margin: 0 15px;
-        }
+    header {
+      background: var(--white);
+      box-shadow: var(--shadow);
+      padding: 12px 20px;
+      width: 100%;
+      box-sizing: border-box;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
 
-        h2 {
-            color: #4CAF50;
-        }
+    header .left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
 
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
+    header .logo {
+      margin: 0;
+      font-weight: bold;
+      font-size: 22px;
+      color: var(--accent);
+    }
 
-        .portfolio {
-            background-color: #e9e9e9;
-            padding: 20px;
-            text-align: center;
-        }
+    header a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+    }
 
-        .contact-info, .portfolio {
-            background-color: #ffffff;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            padding: 20px;
-        }
+    .container {
+      background: var(--secondary);
+      padding: 20px 16px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-sizing: border-box;
+    }
 
-        a {
-            text-decoration: none;
-            color: #4CAF50;
-        }
+    .tagline {
+      font-size: 16px;
+      font-weight: bold;
+      color: var(--text-dark);
+      margin-bottom: 20px;
+    }
 
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            border-radius: 5px;
-            text-decoration: none;
-        }
-    </style>
+    .highlight-negativado {
+      background: var(--accent);
+      color: #fff;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+
+    .headline {
+      text-align: center;
+      color: var(--text-dark);
+      font-weight: 600;
+      font-size: 19px;
+      margin-bottom: 16px;
+      line-height: 1.4;
+    }
+
+    .benefits {
+      font-size: 15px;
+      color: var(--text-dark);
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .benefits span {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .image-wrapper {
+      width: 100%;
+      max-width: 320px;
+      margin-bottom: 24px;
+    }
+
+    .image-wrapper img {
+      width: 100%;
+      border-radius: 14px;
+      object-fit: cover;
+      box-shadow: var(--shadow);
+    }
+
+    .steps-title {
+      font-weight: bold;
+      font-size: 16px;
+      text-align: center;
+      color: var(--text-dark);
+      margin-bottom: 12px;
+    }
+
+    .steps {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 16px;
+      width: 100%;
+      max-width: 360px;
+      box-shadow: var(--shadow);
+      margin-bottom: 24px;
+    }
+
+    .steps p {
+      margin: 10px 0;
+      font-size: 14px;
+      color: var(--text-light);
+    }
+
+    .trust-alert {
+      background-color: #fff8e1;
+      border-left: 5px solid var(--primary);
+      padding: 12px 16px;
+      margin-bottom: 16px;
+      max-width: 360px;
+      font-size: 14px;
+      color: #000;
+      border-radius: 6px;
+      box-shadow: var(--shadow);
+    }
+
+    .cta-button {
+      background: var(--primary);
+      color: #fff;
+      padding: 16px;
+      width: 100%;
+      max-width: 360px;
+      border: none;
+      border-radius: 8px;
+      font-size: 17px;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      display: block;
+      box-shadow: var(--shadow);
+      transition: background 0.2s ease;
+    }
+
+    .cta-button:hover {
+      opacity: 0.9;
+    }
+
+    .why {
+      margin-top: 32px;
+      width: 100%;
+      max-width: 360px;
+      text-align: left;
+    }
+
+    .why-title {
+      font-size: 15px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: var(--text-dark);
+    }
+
+    .why ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .why li {
+      font-size: 14px;
+      margin-bottom: 8px;
+      padding-left: 20px;
+      position: relative;
+      color: var(--text-light);
+    }
+
+    .why li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--success);
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <div class="left">
+      <div class="logo">SapiensCred</div>
+      <a href="#how-it-works">Como funciona</a>
+    </div>
+  </header>
 
-    <header>
-        <h1>Rodrigo Lourenço</h1>
-        <p>Desenvolvedor Web | UX/UI | Soluções Digitais</p>
-    </header>
+  <div class="container">
+    <div class="tagline">Seu empréstimo rápido e seguro</div>
 
-    <section class="contact-info">
-        <h2>Contato</h2>
-        <p>Telefone: <a href="tel:+55419845828296">41 98458-2829</a></p>
-        <p>Email: <a href="mailto:rodrigolourenc@gmail.com">rodrigolourenc@gmail.com</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/rodrigo-lourenco-a72610241" target="_blank">www.linkedin.com/in/rodrigo-lourenco-a72610241</a></p>
-    </section>
+    <div class="highlight-negativado">Negativado? Aqui você tem vez!</div>
 
-    <section class="portfolio">
-        <h2>Portfólio</h2>
-        <p>Em desenvolvimento...</p>
-    </section>
+    <div class="headline">
+      💡 Precisando de dinheiro?<br>
+      Faça seu empréstimo com <strong>alta taxa de aprovação</strong>
+    </div>
 
-    <footer>
-        <p>&copy; 2025 Rodrigo Lourenço | Todos os direitos reservados.</p>
-    </footer>
+    <div class="benefits">
+      <span>✔ Até R$ 2.500 direto na conta via PIX</span>
+      <span>✔ Aceita negativados sem complicação</span>
+      <span>✔ Aprovação instantânea, direto no site</span>
+    </div>
 
+    <div class="image-wrapper">
+      <img src="https://images.pexels.com/photos/3756863/pexels-photo-3756863.jpeg" alt="Pessoa recebendo dinheiro no celular">
+    </div>
+
+    <div class="steps-title" id="how-it-works">Como funciona?</div>
+    <div class="steps">
+      <p>• Simule rapidamente – leva menos de 2 minutos</p>
+      <p>• Receba a aprovação na hora</p>
+      <p>• O valor cai via PIX em até 24h</p>
+    </div>
+
+    <div class="trust-alert">
+      ⚠️ <strong>Atenção!</strong> Não cobramos nenhum tipo de valor antecipado para liberação do seu novo empréstimo!
+    </div>
+
+    <a class="cta-button" href="https://susim.co/EO8KsbANh7GvN7XGXlOlkg==">QUERO SIMULAR AGORA →</a>
+
+    <div class="why">
+      <div class="why-title">Por que a SapiensCred?</div>
+      <ul>
+        <li>Aprovação imediata sem sair do site</li>
+        <li>Ideal para quem está com nome negativado</li>
+        <li>Sem ligações ou papelada – 100% digital</li>
+        <li>Mais chance de conseguir crédito de verdade</li>
+      </ul>
+    </div>
+  </div>
 </body>
 </html>
